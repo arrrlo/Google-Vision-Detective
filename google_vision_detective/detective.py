@@ -85,8 +85,9 @@ class GoogleVisionDetective(object):
         return input_path
 
     def detect(self):
+        service = self.service()
         try:
-            request = self.service().images().annotate(body={'requests': self.requests})
+            request = service.images().annotate(body={'requests': self.requests})
             response = request.execute()
         except:
             raise DetectiveException('Google API Request Error. Check internet connection.')
