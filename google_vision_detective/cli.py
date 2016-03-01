@@ -1,3 +1,4 @@
+import os
 import click
 
 from PIL import Image
@@ -32,7 +33,7 @@ def labels(detective, input_file, max_results):
 
 @cli.command()
 @click.option('-i', '--input_file')
-@click.option('-o', '--output_dir')
+@click.option('-o', '--output_dir', default=os.getcwd())
 @click.option('-m', '--max_results', default=10)
 @click.pass_context
 def faces(detective, input_file, output_dir, max_results):
