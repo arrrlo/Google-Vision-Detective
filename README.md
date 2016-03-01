@@ -13,7 +13,7 @@ pip install git+git://github.com/arrrlo/Google-Vision-Detective@master
 
 <h3>Use it as python package</h3>
 
-```
+```python
 import os
 
 from google_vision_detective import GoogleVisionDetective, Request
