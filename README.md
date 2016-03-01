@@ -11,13 +11,23 @@ It can be used as python package and CLI (command line interface). CLI is rather
 pip install git+git://github.com/arrrlo/Google-Vision-Detective@master
 ```
 
+<h3>Get Google Vision API credentials</h3>
+
+<p>In order to use Google Vision API you must get credentials in form of json file. To do that go to <a href="https://cloud.google.com/vision/">Google Cloud Vision Homepage</a>, enable Cloud Vision API in your Google API Manager and issue a credentials json file.<br/>
+<h href="https://cloud.google.com/vision/docs/getting-started">Google Cloud Vision API: Getting Started</a></>
+
 <h3>Use it as python package</h3>
 
 ```python
 import os
 
 from google_vision_detective import GoogleVisionDetective, Request
-from google_vision_detective.features import Fase, Label
+from google_vision_detective.features import Face, Label
+
+credentials = os.path.join('__path_to_your_credentials_json_file__')
+input_dir = os.path.join('__path_to_dir_where_image_from_url_is_saved__')
+
+detective = GoogleVisionDetective(credentials=credentials, input_dir=input_dir)
 
 images = [
   '__image1_url__',
@@ -27,11 +37,6 @@ images = [
   .
 ]
 
-credentials = os.path.join('__path_to_your_credentials_json_file__')
-input_dir = os.path.join('__path_to_dir_where_image_from_url_is_saved__')
-
-detective = GoogleVisionDetective(credentials=credentials, input_dir=input_dir)
-
 for image in images:
   with Request(detective, image) as request:
     request.feature(Label(max_results=10))
@@ -39,3 +44,4 @@ for image in images:
 
 responses = detective.obj.detect()
 ```
+
