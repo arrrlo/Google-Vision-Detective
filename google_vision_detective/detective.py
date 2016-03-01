@@ -107,10 +107,10 @@ class GoogleVisionDetective(object):
         return detection_responses
 
     def service(self):
-        if not 'GOOGLE_APPLICATION_CREDENTIALS' in os.environ:
-            try:
-                os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = self.credentials
-            except:
+        if self.credentials:
+            os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = self.credentials
+        else:
+            if not 'GOOGLE_APPLICATION_CREDENTIALS' in os.environ:
                 raise DetectiveException("""Cloud Vision API credentials not set.
 Check documentation for help: https://github.com/arrrlo/Google-Vision-Detective""")
         
