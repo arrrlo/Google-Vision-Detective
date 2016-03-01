@@ -46,7 +46,7 @@ class GoogleVisionDetective(object):
     def __init__(self, credentials=None, input_dir=None):
         self.images = []
         self.requests = []
-        self.input_dir = input_dir
+        self.input_dir = input_dir or os.getcwd()
         self.credentials = credentials
 
     def set_request(self, image, features):
