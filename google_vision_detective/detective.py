@@ -43,7 +43,7 @@ class Response(object):
 
 class GoogleVisionDetective(object):
 
-    def __init__(self, credentials, input_dir):
+    def __init__(self, credentials=None, input_dir=None):
         self.images = []
         self.requests = []
         self.input_dir = input_dir
@@ -89,7 +89,6 @@ class GoogleVisionDetective(object):
             request = self.service().images().annotate(body={'requests': self.requests})
             response = request.execute()
         except:
-            self.remove_credentials_env()
             raise DetectiveException('Google API Request Error. Check internet connection.')
 
         i = 0
@@ -99,6 +98,7 @@ class GoogleVisionDetective(object):
             response_obj = Response(image=image['image'])
             for feature in image['features']:
                 response_obj.set_feature(feature(response['responses'][i]))
+                i += 1
 
             detection_responses.append(response_obj)
 
@@ -108,20 +108,15 @@ class GoogleVisionDetective(object):
 
     def service(self):
         if not 'GOOGLE_APPLICATION_CREDENTIALS' in os.environ:
-            os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = self.credentials
+            try:
+                os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = self.credentials
+            except:
+                raise DetectiveException('Cloud Vision API credentials not set. \
+                                          Check documentation for help: https://github.com/arrrlo/Google-Vision-Detective')
         
         try:
             credentials = GoogleCredentials.get_application_default()
             return discovery.build('vision', 'v1', credentials=credentials, 
                                                    discoveryServiceUrl=DISCOVERY_URL)
         except:
-            self.remove_credentials_env()
             raise DetectiveException('Google API Error. Check your credentials.')
-
-    def remove_credentials_env(self):
-        del os.environ['GOOGLE_APPLICATION_CREDENTIALS']
-
-
-
-
-
