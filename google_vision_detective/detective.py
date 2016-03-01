@@ -111,8 +111,8 @@ class GoogleVisionDetective(object):
             try:
                 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = self.credentials
             except:
-                raise DetectiveException('Cloud Vision API credentials not set. \
-                                          Check documentation for help: https://github.com/arrrlo/Google-Vision-Detective')
+                raise DetectiveException("""Cloud Vision API credentials not set.
+Check documentation for help: https://github.com/arrrlo/Google-Vision-Detective')"""
         
         try:
             credentials = GoogleCredentials.get_application_default()
