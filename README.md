@@ -13,8 +13,9 @@ pip install git+git://github.com/arrrlo/Google-Vision-Detective@master
 
 <h3>Get Google Vision API credentials</h3>
 
-<p>In order to use Google Vision API you must get credentials in form of json file. To do that go to <a href="https://cloud.google.com/vision/">Google Cloud Vision Homepage</a>, enable Cloud Vision API in your Google API Manager and issue a credentials json file.<br/>
-<a href="https://cloud.google.com/vision/docs/getting-started">Google Cloud Vision API: Getting Started</a></p>
+<p>In order to use Google Vision API you must get credentials in form of json file. To do that go to <a href="https://cloud.google.com/vision/">Google Cloud Vision Homepage</a>, enable Cloud Vision API in your Google API Manager and issue a credentials json file.<br/><br/>
+
+Detailed help: <a href="https://cloud.google.com/vision/docs/getting-started">Google Cloud Vision API: Getting Started</a></p>
 
 <h3>Use it as python package</h3>
 
@@ -45,3 +46,16 @@ for image in images:
 responses = detective.obj.detect()
 ```
 
+<h3>Use it as CLI (command line interface)</h3>
+
+<p>Fetch a photo from URL and detect what is on that image:</p>
+
+```
+gvdetective -c path/to/your/credentials/file.json -i ~/input_dir/ labels -i http://www.domain.com/image.jpg
+```
+
+<p>Fetch a photo from URL and detect faces:</p>
+
+```
+gvdetective -c path/to/your/credentials/file.json -i ~/img/input faces -i http://www.domain.com/image.jpg -o ~/img/output
+```
