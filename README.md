@@ -64,22 +64,23 @@ gvdetective -c path/to/your/credentials/file.json -i ~/img/input faces -i http:/
 
 <p>Google Cloud Vision API python package needs to have GOOGLE_APPLICATION_CREDENTIALS environment variable set in order to work.</p>
 
-You can set it using this three different ways:<br />
-1. in Linux: 
+You can set it using this three different ways:<br /><br />
+
+In Linux: 
 ```
 $ export GOOGLE_APPLICATION_CREDENTIALS=__path_to_your_credentials_jon_file__
 ```
-2. in code:
+In code:
 ```python
 credentials = os.path.join('__path_to_your_credentials_json_file__')
 detective = GoogleVisionDetective(credentials=credentials)
 ```
-3. in code:
+In code:
 ```python
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join('__path_to_your_credentials_json_file__')
 detective = GoogleVisionDetective()
 ```
-4. in CLI:
+In CLI:
 ```
 gvdetective -c path/to/your/credentials/file.json ...
 ```
