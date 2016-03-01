@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name = 'Google Vision Detective',
     description = 'Easy use of Google Vision API',
-    version = "0.1.dev0",
+    version = "0.1",
     url = 'https://github.com/arrrlo/Google-Vision-Detective',
 
     author = 'Ivan Arar',
