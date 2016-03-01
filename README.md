@@ -14,7 +14,7 @@ pip install git+git://github.com/arrrlo/Google-Vision-Detective@master
 <h3>Get Google Vision API credentials</h3>
 
 <p>In order to use Google Vision API you must get credentials in form of json file. To do that go to <a href="https://cloud.google.com/vision/">Google Cloud Vision Homepage</a>, enable Cloud Vision API in your Google API Manager and issue a credentials json file.<br/>
-<h href="https://cloud.google.com/vision/docs/getting-started">Google Cloud Vision API: Getting Started</a></p>
+<a href="https://cloud.google.com/vision/docs/getting-started">Google Cloud Vision API: Getting Started</a></p>
 
 <h3>Use it as python package</h3>
 
