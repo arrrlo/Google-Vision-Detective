@@ -4,7 +4,7 @@ setup(
     name = 'Google Vision Detective',
     description = 'Easy use of Google Vision API',
     version = "0.1.dev0",
-    url = '',
+    url = 'https://github.com/arrrlo/Google-Vision-Detective',
 
     author = 'Ivan Arar',
     author_email = 'ivan.arar@gmail.com',
