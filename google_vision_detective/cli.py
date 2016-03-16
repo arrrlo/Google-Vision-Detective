@@ -1,3 +1,4 @@
+import os
 import click
 
 from PIL import Image
@@ -40,7 +41,8 @@ def labels(detective, input_file, max_results):
 @click.option('-o', '--output_dir', type=click.STRING,
                                     help='Path to directory where the image\
                                           with detected faces will be stored')
-@click.option('-m', '--max_results', default=10)
+@click.option('-m', '--max_results', default=10,
+                                     help='Maximum results per request')
 @click.pass_context
 def faces(detective, input_file, output_dir, max_results):
     with Request(detective.obj, input_file) as request:
@@ -98,7 +100,6 @@ def landmark(detective, input_file, max_results):
     for response in responses:
         for feature in response.features:
             for label in feature.annotations:
-                #click.echo('{description} ({locale})'.format(**label))
                 click.echo(label)
 
 
@@ -116,7 +117,6 @@ def logo(detective, input_file, max_results):
     for response in responses:
         for feature in response.features:
             for label in feature.annotations:
-                #click.echo('{description} ({locale})'.format(**label))
                 click.echo(label)
 
 
