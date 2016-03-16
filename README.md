@@ -60,6 +60,28 @@ gvdetective -c path/to/your/credentials/file.json -i ~/input_dir/ labels -i http
 gvdetective -c path/to/your/credentials/file.json -i ~/img/input faces -i http://www.domain.com/image.jpg -o ~/img/output
 ```
 
+<p>Type gvdetective --help</p>
+
+```
+Usage: gvdetective [OPTIONS] COMMAND [ARGS]...
+
+  Detective is a wrapper for Google Vision API
+
+Options:
+  -c, --credentials TEXT  Path to your credentials json file
+  -i, --input_dir TEXT    Path to directory where input images will be stored
+  --help                  Show this message and exit.
+
+Commands:
+  faces        Detect faces within the image
+  labels       Execute Image Content Analysis on the entire...
+  landmark     Detect geographic landmarks within the image
+  logo         Detect company logos within the image
+  properties   Compute a set of properties about the image...
+  safe_search  Determine image safe search properties on the...
+  text         Perform Optical Character Recognition (OCR)...
+```
+
 <h3>Path to credentials file in environment variables</h3>
 
 <p>Google Cloud Vision API python package needs to have GOOGLE_APPLICATION_CREDENTIALS environment variable set in order to work.</p>
