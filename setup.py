@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name = 'Google Vision Detective',
     description = 'Easy use of Google Vision API',
-    version = "0.3",
+    version = "0.4",
     url = 'https://github.com/arrrlo/Google-Vision-Detective',
 
     author = 'Ivan Arar',
@@ -12,7 +12,7 @@ setup(
     packages = ['google_vision_detective'],
     install_requires = [
         'google-api-python-client==1.5.0',
-        'requests==2.9.1',
+        'requests~=2.20.0',
         'Pillow==3.1.1',
         'click==6.3',
     ],
