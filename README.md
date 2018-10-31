@@ -7,7 +7,8 @@ It can be used as python package and CLI (command line interface). CLI is rather
 <h3>Instalation</h3>
 
 <p>Install using pip:</p>
-```
+
+```bash
 pip install git+git://github.com/arrrlo/Google-Vision-Detective@master
 ```
 
